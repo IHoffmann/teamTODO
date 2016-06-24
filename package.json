@@ -1,0 +1,42 @@
+{
+  "name": "ihoffmann",
+  "version": "1.0.0",
+  "description": "A small practice app that will run multiuser todo lists that update in real time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IHoffmann/teamTODO.git"
+  },
+  "author": "Isaac Hoffmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IHoffmann/teamTODO/issues"
+  },
+  "homepage": "https://github.com/IHoffmann/teamTODO#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.0.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-webpack": "^1.7.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "express": "^4.14.0",
+    "immutable": "^3.8.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-actions": "^0.10.0",
+    "reselect": "^2.5.1",
+    "socket.io": "^1.4.8"
+  }
+}
