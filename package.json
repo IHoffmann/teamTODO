@@ -1,57 +1,44 @@
 {
-  "name": "ihoffmann",
-  "version": "1.0.0",
-  "description": "A small practice app that will run multiuser todo lists that update in real time.",
-  "main": "index.js",
+  "name": "redux-todos-example",
+  "version": "0.0.0",
+  "description": "Redux Todos example",
   "scripts": {
-    "prepublish": "webpack --build=prod",
-    "builddev": "webpack --build=dev",
-    "lint": "eslint app tests",
-    "test": "karma start",
-    "testdev": "karma start --build=dev"
+    "start": "node server.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IHoffmann/teamTODO.git"
+    "url": "https://github.com/reactjs/redux.git"
   },
-  "author": "Isaac Hoffmann",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IHoffmann/teamTODO/issues"
+    "url": "https://github.com/reactjs/redux/issues"
   },
-  "homepage": "https://github.com/IHoffmann/teamTODO#readme",
-  "devDependencies": {
-    "eslint": "^2.13.1",
-    "eslint-plugin-react": "^5.2.2",
-    "jasmine-core": "^2.4.1",
-    "karma": "^1.0.0",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-jasmine": "^1.0.2",
-    "karma-webpack": "^1.7.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.10.0"
-  },
+  "homepage": "http://redux.js.org",
   "dependencies": {
-    "babel-core": "^6.10.4",
-    "babel-loader": "^6.2.4",
-    "babel-preset-react": "^6.5.0",
-    "babel-runtime": "^6.9.2",
-    "es6-promise": "^3.2.1",
-    "express": "^4.14.0",
-    "fetch-mock": "^4.5.4",
-    "immutable": "^3.8.1",
-    "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.13.1",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "react-immutable-proptypes": "^1.7.1",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2",
-    "redux-actions": "^0.10.0",
-    "redux-batched-subscribe": "^0.1.6",
-    "redux-thunk": "^2.1.0",
-    "reselect": "^2.5.1",
-    "socket.io": "^1.4.8"
+    "babel-polyfill": "^6.3.14",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.1.2",
+    "redux": "^3.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.15",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-register": "^6.3.13",
+    "cross-env": "^1.0.7",
+    "expect": "^1.8.0",
+    "express": "^4.13.3",
+    "jsdom": "^5.6.1",
+    "mocha": "^2.2.5",
+    "node-libs-browser": "^0.5.2",
+    "react-addons-test-utils": "^0.14.7",
+    "webpack": "^1.9.11",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.9.1"
   }
 }
