@@ -5,20 +5,54 @@ import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
 
-const getVisibleTodos = (todos, filter) => {
-    switch (filter) {
+const getVisibleTodos = (todoLists, visibilityFilter) => {
+    switch (visibilityFilter) {
         case 'SHOW_ALL':
-            return todos
+            return todoLists;
         case 'SHOW_COMPLETED':
-            return todos.filter(t => t.completed)
+            var newTodoLists = [];//Makes new object so no mutations
+            for(var x = 0; x < todoLists.length; x++){//Cycle through all the todoList objects
+                var tempTodoList = {//Used to add todoList objects to the new todoList array
+                    userName: todoLists[x].userName,
+                    onTodoClick: todoLists[x].onTodoClick,
+                    todos:[]
+                };
+
+                for(var y = 0; y < todoLists.todo.length; y++){//Cycle through the list to find completed
+                    if(todoLists[x].todos[y].completed){
+                        tempTodoList.todos.push(todoLists[x].todos[y]);//Add completed to each todoList's list
+                    }
+                }
+                if(tempTodoList.todos.length > 0){//Doesn't show empty todoList objects
+                    newTodoLists.push(tempTodoList);
+                }
+            }
+            return newTodoLists;
         case 'SHOW_ACTIVE':
-            return todos.filter(t => !t.completed)
+            var newTodoLists = [];//Makes new object so no mutations
+            for(var x = 0; x < todoLists.length; x++){//Cycle through all the todoList objects
+                var tempTodoList = {//Used to add todoList objects to the new todoList array
+                    userName: todoLists[x].userName,
+                    onTodoClick: todoLists[x].onTodoClick,
+                    todos:[]
+                };
+
+                for(var y = 0; y < todoLists.todo.length; y++){//Cycle through the list to find completed
+                    if(!todoLists[x].todos[y].completed){
+                        tempTodoList.todos.push(todoLists[x].todos[y]);//Add active items to each todoList's list
+                    }
+                }
+                if(tempTodoList.todos.length > 0){//Doesn't show empty todoList objects
+                    newTodoLists.push(tempTodoList);
+                }
+            }
+            return newTodoLists;
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        todos: getVisibleTodos(state[0].todos, state.visibilityFilter)
+        todoLists: getVisibleTodos(state.todoLists, state.visibilityFilter)
     }
 }
 

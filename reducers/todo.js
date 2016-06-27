@@ -1,6 +1,8 @@
 /**
  * Created by ihoffmann on 6/24/16.
  */
+import {ADD_TODO, ADD_USER, TOGGLE_TODO} from '../actions/actions';
+
 var data = [
     {
         todos: [
@@ -11,40 +13,17 @@ var data = [
     }
 ];
 
-const todo = (state, action) => {
+const todos = (state = {todoLists: data, visibilityFilter: 'SHOW_ALL'}, action) => {
     switch (action.type) {
-        case 'ADD_USER':
-            //TODO add in this reducer
-            return ;
-        case 'ADD_TODO':
-            //TODO add in this reducer
-            return ;
-        case 'TOGGLE_TODO':
-            //TODO add in this reducer
+        case ADD_TODO:
+            
             return;
-        default:
-            return state
-    }
-}
-
-const todos = (state = data, action) => {
-    switch (action.type) {
-        case 'ADD_USER':
-            return;
-        case 'ADD_TODO':
-            for(var x = 0; x < state.length; x++){
-                if(state[x].userName === action.userName){
-                    return todo(state[x].todos, action);
-                }
-            }
+        case ADD_USER:
+            
             return state;
 
-        case 'TOGGLE_TODO':
-            for(var x = 0; x < state.length; x++){
-                if(state[x].userName === action.userName){
-                    return todo(state[x].todos, action);
-                }
-            }
+        case TOGGLE_TODO:
+            
             return state;
         default:
             return state;
