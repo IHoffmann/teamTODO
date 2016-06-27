@@ -1,9 +1,9 @@
 /**
  * Created by ihoffmann on 6/27/16.
  */
-import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
-import TodoList from '../components/TodoList'
+import { connect } from 'react-redux';
+import { toggleTodo } from '../actions/actions';
+import TodoListBox from '../components/TodoListBox';
 
 const getVisibleTodos = (todoLists, visibilityFilter) => {
     switch (visibilityFilter) {
@@ -67,6 +67,6 @@ const mapDispatchToProps = (dispatch) => {
 const VisibleTodoList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(TodoList)
+)(TodoListBox);
 
 export default VisibleTodoList
