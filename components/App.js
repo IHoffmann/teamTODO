@@ -1,7 +1,7 @@
 /**
  * Created by ihoffmann on 6/24/16.
  */
-import React from 'react';
+import React, { PropTypes } from 'react';
 import TodoListBox from '../components/TodoListBox';
 import Footer from '../components/Footer';
 console.log("HEY");
@@ -12,6 +12,6 @@ const App = () => (
         <TodoListBox />
         <Footer />
     </div>
-)
+);
 
 export default App

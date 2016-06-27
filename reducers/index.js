@@ -1,10 +1,13 @@
 /**
  * Created by ihoffmann on 6/24/16.
  */
-import combineReducers from 'redux';
+import { combineReducers } from 'redux';
+import todos from './todo';
+import visibilityFilter from './visibilityFilter'
 
 let todoApp = combineReducers({
-    //TODO fill with the reducers
+    todos,
+    visibilityFilter
 });
 
 export default todoApp;
