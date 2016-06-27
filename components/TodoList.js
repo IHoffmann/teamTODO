@@ -1,8 +1,8 @@
 /**
  * Created by ihoffmann on 6/24/16.
  */
-import React, { PropTypes } from 'react'
-import Todo from './Todo'
+import React, { PropTypes } from 'react';
+import Todo from './Todo';
 
 //TODO double check the onTodoClick params being passed
 const TodoList = ({ todos, onTodoClick }) => (
@@ -25,4 +25,4 @@ TodoList.propTypes = {
     onTodoClick: PropTypes.func.isRequired
 };
 
-export default TodoList
+export default TodoList;

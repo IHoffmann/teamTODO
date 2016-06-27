@@ -29,6 +29,6 @@ TodoListBox.propTypes = {
             userName: PropTypes.string.isRequired
         }
     ))
-}
+};
 
 export default TodoListBox;
