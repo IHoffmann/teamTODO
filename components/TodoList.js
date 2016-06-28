@@ -5,12 +5,13 @@ import React, { PropTypes } from 'react';
 import Todo from './Todo';
 
 //TODO double check the onTodoClick params being passed
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, onTodoClick}) => (
     <ul>
         {todos.map(todo =>
             <Todo
                 todo={todo}
-                onClick={() => onTodoClick(todo.id)}
+                onTodoClick={() => onTodoClick(todo.id)}
+                key={todo.id}
             />
         )}
     </ul>

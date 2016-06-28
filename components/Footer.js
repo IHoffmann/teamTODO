@@ -3,7 +3,6 @@
  */
 import React, { PropTypes } from 'react';
 import AddBar from '../components/AddBar';
-import VisSelector from '../components/VisSelector';
 import FilterLink from '../containers/Filter'
 
 const Footer = () => (

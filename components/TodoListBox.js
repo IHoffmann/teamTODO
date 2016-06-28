@@ -12,6 +12,7 @@ const TodoListBox = ({todoLists}) => (
                 <TodoList
                     todos={todoList.todos}
                     onTodoClick={todoList.onTodoClick}
+                    key={todoList.userName}
                 />
             </li>
         )}

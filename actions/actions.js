@@ -30,10 +30,9 @@ export const setVisibilityFilter = (filter) => {
     }
 }
 
-export const toggleTodo = (id, userName) => {
+export const toggleTodo = (id) => {
     return {
         type: TOGGLE_TODO,
-        id,
-        userName
+        id
     }
 }
