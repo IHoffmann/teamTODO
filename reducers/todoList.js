@@ -21,11 +21,13 @@ var data = [
 const todoList = (state = data, action) => {
     switch (action.type) {
         case ADD_TODO:
+            console.log(state);
             for(var x = 0; x < state.length; x ++){
                 if(state[x].userName === action.userName) {
                     let  newState = _.cloneDeep(state);
                     //let newState = Object.assign({}, state);//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
                     newState[x].todos.push({id: action.id, author:action.author, text: action.text});
+                    console.log(newState);
                     return newState;
                 }
             }
@@ -33,6 +35,7 @@ const todoList = (state = data, action) => {
         case ADD_USER:
             for(var x = 0; x < state.length; x ++){
                 if(action.userName === state[x].userName){//Ignores already added users
+                    console.log("Found the same user");
                     return state;
                 }
             }
@@ -42,8 +45,8 @@ const todoList = (state = data, action) => {
                 userName: action.userName,
                 onTodoClick: data.onTodoClick
             };
-
-            return _.cloneDeep(state).push(newTodoList);
+            console.log(state);
+            return [_.cloneDeep(state), newTodoList];
             /*return [
                 ...state,//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
                 newTodoList

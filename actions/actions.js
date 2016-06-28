@@ -16,7 +16,7 @@ export const addTodo = (text, userName) => {
         userName
     }
 }
-export const addUser = (text, userName) => {
+export const addUser = (userName) => {
     return {
         type: ADD_USER,
         userName

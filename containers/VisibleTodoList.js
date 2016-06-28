@@ -8,6 +8,7 @@ import TodoListBox from '../components/TodoListBox';
 const getVisibleTodos = (todoLists, visibilityFilter) => {
     switch (visibilityFilter) {
         case 'SHOW_ALL':
+            console.log("In show_all in VisibleTodoList");
             return todoLists;
         case 'SHOW_COMPLETED':
             var newTodoLists = [];//Makes new object so no mutations
@@ -47,6 +48,9 @@ const getVisibleTodos = (todoLists, visibilityFilter) => {
                 }
             }
             return newTodoLists;
+        default:
+            console.log("In default in VisibleTodoList");
+            return todoLists;
     }
 }
 

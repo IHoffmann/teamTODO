@@ -21,7 +21,7 @@ let AddBar = ({ dispatch }) => {
                 }
                 else{
                     dispatch(addUser(inputUserName.value));
-                    dispatch(addTodo(inputTodo.value));
+                    dispatch(addTodo(inputTodo.value, inputUserName.value));
                 }
                 inputUserName.value = '';
                 inputTodo.value = '';

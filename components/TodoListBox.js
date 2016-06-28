@@ -6,7 +6,7 @@ import TodoList from './TodoList';
 
 const TodoListBox = ({todoLists}) => (
     <ul>
-        {todoLists.map(todoList =>
+        {(typeof todoLists === 'undefined') ? "" : todoLists.map(todoList =>
             <li>
                 {todoList.userName}
                 <TodoList
