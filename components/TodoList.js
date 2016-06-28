@@ -4,7 +4,6 @@
 import React, { PropTypes } from 'react';
 import Todo from './Todo';
 
-//TODO double check the onTodoClick params being passed
 const TodoList = ({ todos, onTodoClick}) => (
     <ul>
         {todos.map(todo =>
