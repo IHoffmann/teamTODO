@@ -2,6 +2,7 @@
  * Created by ihoffmann on 6/24/16.
  */
 import {store} from 'redux';
+var _ = require('lodash');
 import {ADD_TODO, ADD_USER, TOGGLE_TODO, toggleTodo} from '../actions/actions';
 
 var data = [
@@ -22,8 +23,9 @@ const todoList = (state = data, action) => {
         case ADD_TODO:
             for(var x = 0; x < state.length; x ++){
                 if(state[x].userName === action.userName) {
-                    let newState = Object.assign({}, state);//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
-                    newState.state[x].todos.push({id: action.id, author:action.author, text: action.text});
+                    let  newState = _.cloneDeep(state);
+                    //let newState = Object.assign({}, state);//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
+                    newState[x].todos.push({id: action.id, author:action.author, text: action.text});
                     return newState;
                 }
             }
@@ -41,17 +43,19 @@ const todoList = (state = data, action) => {
                 onTodoClick: data.onTodoClick
             };
 
-            return [
+            return _.cloneDeep(state).push(newTodoList);
+            /*return [
                 ...state,//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
                 newTodoList
-            ];
+            ];*/
         case TOGGLE_TODO:
-            var newState = Object.assign({}, state);//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
-            for(var x = 0; x < newState.state.length; x ++){//finds the user
-                for(var y = 0; y < newState.state[x].todos.length; y ++){
-                    if(action.id === newState.state[x].todos[y].id){//finds the entry
-                        newState.state[x].todos[y].completed = !newState.state[x].todos[y].completed;
-                        return newState.state;
+            let  newState = _.cloneDeep(state);
+            //var newState = Object.assign({}, state);//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
+            for(var x = 0; x < newState.length; x ++){//finds the user
+                for(var y = 0; y < newState[x].todos.length; y ++){
+                    if(action.id === newState[x].todos[y].id){//finds the entry
+                        newState[x].todos[y].completed = !newState[x].todos[y].completed;
+                        return newState;
                     }
                 }
             }
