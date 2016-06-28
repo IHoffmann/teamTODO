@@ -8,8 +8,8 @@ import {ADD_TODO, ADD_USER, TOGGLE_TODO, toggleTodo} from '../actions/actions';
 var data = [
     {
         todos: [
-            {id: 1, author: "Isaac", text: "This is one todo"},
-            {id: 2, author: "Isaac", text: "This is *another* todo"}
+            {id: 0, author: "Isaac", text: "This is one todo"},
+            {id: 1, author: "Isaac", text: "This is *another* todo"}
         ],
         userName: "Isaac",
         onTodoClick: (id) => {
@@ -19,14 +19,12 @@ var data = [
 ];
 
 const todoList = (state = data, action) => {
+    let  newState = _.cloneDeep(state);
     switch (action.type) {
         case ADD_TODO:
-            console.log(state);
             for(var x = 0; x < state.length; x ++){
                 if(state[x].userName === action.userName) {
-                    let  newState = _.cloneDeep(state);
-                    //let newState = Object.assign({}, state);//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
-                    newState[x].todos.push({id: action.id, author:action.author, text: action.text});
+                    newState[x].todos.push({id: action.id, author:action.userName, text: action.text});
                     console.log(newState);
                     return newState;
                 }
@@ -43,16 +41,18 @@ const todoList = (state = data, action) => {
             var newTodoList = {
                 todos:[],
                 userName: action.userName,
-                onTodoClick: data.onTodoClick
+                onTodoClick: (id) => {
+                    store.dispatch(toggleTodo(id))
+                }
             };
             console.log(state);
-            return [_.cloneDeep(state), newTodoList];
+            newState.push(newTodoList);
+            return newState;
             /*return [
                 ...state,//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
                 newTodoList
             ];*/
         case TOGGLE_TODO:
-            let  newState = _.cloneDeep(state);
             //var newState = Object.assign({}, state);//THIS MAY NOT WORK DUE TO DEEP COPY ISSUES
             for(var x = 0; x < newState.length; x ++){//finds the user
                 for(var y = 0; y < newState[x].todos.length; y ++){

@@ -3,13 +3,13 @@
  */
 import React, { PropTypes } from 'react';
 
-const FilterOption = ({ filterType, onSelect}) => (
-    <option value={filterType} onselect={onSelect}>{filterType}</option>
+const FilterOption = ({filterType, odnClick}) => (
+    <option value={filterType} onClick={onClick}>{filterType}</option>
 );
 
 FilterOption.PropTypes = {
     filterType: PropTypes.string.isRequired,
-    onSelect: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired
 };
 
 export default FilterOption;

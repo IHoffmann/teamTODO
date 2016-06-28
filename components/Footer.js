@@ -4,10 +4,26 @@
 import React, { PropTypes } from 'react';
 import AddBar from '../components/AddBar';
 import VisSelector from '../components/VisSelector';
+import FilterLink from '../containers/Filter'
 
 const Footer = () => (
     <div>
-        <AddBar /><VisSelector />
+        <AddBar />
+        <p>
+            Show:
+            {" "}
+            <FilterLink filter="SHOW_ALL">
+                All
+            </FilterLink>
+            {", "}
+            <FilterLink filter="SHOW_ACTIVE">
+                Active
+            </FilterLink>
+            {", "}
+            <FilterLink filter="SHOW_COMPLETED">
+                Completed
+            </FilterLink>
+        </p>
     </div>
 );
 

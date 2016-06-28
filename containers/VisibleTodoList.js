@@ -11,12 +11,13 @@ const getVisibleTodos = (todoLists, visibilityFilter) => {
             console.log("In show_all in VisibleTodoList");
             return todoLists;
         case 'SHOW_COMPLETED':
+            console.log("In show_completed in VisibleTodoList");
             var newTodoLists = [];//Makes new object so no mutations
             for(var x = 0; x < todoLists.length; x++){//Cycle through all the todoList objects
                 var tempTodoList = {//Used to add todoList objects to the new todoList array
+                    todos:[],
                     userName: todoLists[x].userName,
-                    onTodoClick: todoLists[x].onTodoClick,
-                    todos:[]
+                    onTodoClick: todoLists[x].onTodoClick
                 };
 
                 for(var y = 0; y < todoLists.todo.length; y++){//Cycle through the list to find completed
@@ -30,12 +31,13 @@ const getVisibleTodos = (todoLists, visibilityFilter) => {
             }
             return newTodoLists;
         case 'SHOW_ACTIVE':
+            console.log("In show_active in VisibleTodoList");
             var newTodoLists = [];//Makes new object so no mutations
             for(var x = 0; x < todoLists.length; x++){//Cycle through all the todoList objects
                 var tempTodoList = {//Used to add todoList objects to the new todoList array
+                    todos:[],
                     userName: todoLists[x].userName,
-                    onTodoClick: todoLists[x].onTodoClick,
-                    todos:[]
+                    onTodoClick: todoLists[x].onTodoClick
                 };
 
                 for(var y = 0; y < todoLists.todo.length; y++){//Cycle through the list to find completed
@@ -52,13 +54,14 @@ const getVisibleTodos = (todoLists, visibilityFilter) => {
             console.log("In default in VisibleTodoList");
             return todoLists;
     }
-}
+};
 
 const mapStateToProps = (state) => {
+    console.log("IN VisibleTodoList.js state.visibilityFilter===" + state.visibilityFilter);
     return {
         todoLists: getVisibleTodos(state.todoLists, state.visibilityFilter)
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -66,11 +69,11 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(toggleTodo(id))
         }
     }
-}
+};
 
 const VisibleTodoList = connect(
     mapStateToProps,
     mapDispatchToProps
 )(TodoListBox);
 
-export default VisibleTodoList
+export default VisibleTodoList;
