@@ -4,7 +4,7 @@
   "description": "Redux Todos example",
   "scripts": {
     "start": "node server.js",
-    "test": "karma start",
+    "test": "karma start --build=dev",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
@@ -17,6 +17,7 @@
   },
   "homepage": "http://redux.js.org",
   "devDependencies": {
+    "autoprefixer": "^6.1.0",
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.2",
     "babel-plugin-lodash": "^2.2.1",

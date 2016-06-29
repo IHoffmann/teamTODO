@@ -26,8 +26,8 @@ let AddBar = ({ dispatch }) => {
                 inputUserName.value = '';
                 inputTodo.value = '';
             }}>
-                <input ref={user => {inputUserName = user;}} />
-                <input ref={node => {inputTodo = node;}} />
+                <input placeholder="Who?" ref={user => {inputUserName = user;}} />
+                <input placeholder="What Todo?" ref={node => {inputTodo = node;}} />
                 <button type="submit">
                     Add Todo
                 </button>
