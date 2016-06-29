@@ -1,7 +1,7 @@
 {
-  "name": "redux-todos-example",
-  "version": "0.0.0",
-  "description": "Redux Todos example",
+  "name": "Multiuser_Todo",
+  "version": "1.0.0",
+  "description": "A small practice app that uses a react & redux stack to make a multiuser todo list.",
   "scripts": {
     "start": "node server.js",
     "test": "karma start --build=dev",
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/reactjs/redux.git"
+    "url": "https://github.com/IHoffmann/teamTODO.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reactjs/redux/issues"
+    "url": "https://github.com/IHoffmann/teamTODO/issues"
   },
-  "homepage": "http://redux.js.org",
+  "homepage": "",
   "devDependencies": {
     "autoprefixer": "^6.1.0",
     "babel-core": "^6.4.5",
